@@ -3,6 +3,6 @@
 
 int	main(void)
 {
-	basic_strcpy_launcher();
+	int	lu_memmove_launcher(void);
 	return (0);
 }
