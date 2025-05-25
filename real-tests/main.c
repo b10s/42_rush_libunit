@@ -1,5 +1,4 @@
-#include "libunit.h"
-#include "basic_strcpy_tests.h"
+#include "real_test.h"
 
 int	main(void)
 {
