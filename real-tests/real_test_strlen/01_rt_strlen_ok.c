@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   01_rt_strlen_ok.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:16:30 by shattori          #+#    #+#             */
-/*   Updated: 2024/10/29 18:02:10 by shattori         ###   ########.fr       */
+/*   Created: 2025/05/24 03:47:19 by shattori          #+#    #+#             */
+/*   Updated: 2025/05/25 16:38:30 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-size_t	ft_strlen(const char *in)
+int	ft_strlen(const char *str);
+
+int	basic_strlen_test_ok(void)
 {
-	size_t	cnt;
+	char	s1[10] = "hello";
+	char	*s2;
 
-	cnt = 0;
-	while (in[cnt])
-		cnt++;
-	return (cnt);
+	s2 = "world";
+	if (ft_strlen(s1) == 5 && ft_strlen(s2) == 5)
+		return (0);
+	else
+		return (-1);
 }

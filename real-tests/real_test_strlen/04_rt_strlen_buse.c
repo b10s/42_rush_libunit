@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_strlen_ok.c                               :+:      :+:    :+:   */
+/*   04_rt_strlen_buse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 03:47:19 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/24 06:37:59 by shattori         ###   ########.fr       */
+/*   Created: 2025/05/24 03:47:27 by shattori          #+#    #+#             */
+/*   Updated: 2025/05/25 17:03:20 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int	ft_strlen(const char *str);
 
-int	basic_strlen_test_ok(void)
+int	basic_strlen_test_buse(void)
 {
-	char	s1[10] = "hello";
-	char	*s2;
+	char	*s;
 
-	s2 = "world";
-	if (ft_strlen(s1) == 5 && ft_strlen(s2) == 5)
-		return (0);
-	else
-		return (-1);
+	s = (char *)1;
+	ft_strlen(s);
+	return (-1);
 }
