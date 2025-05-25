@@ -6,13 +6,13 @@
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 18:01:18 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:01:08 by shattori         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:04:56 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "101_basic_tests.h"
 
-int	test_my_f_bus(void)
+int	test_buse(void)
 {
 	int	*ptr;
 

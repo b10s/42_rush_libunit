@@ -6,12 +6,11 @@
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 15:04:24 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:01:01 by shattori         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:03:44 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "101_basic_tests.h"
-#include "libunit.h"
+#include "./basic/101_basic_tests.h"
 
 int	main(void)
 {
