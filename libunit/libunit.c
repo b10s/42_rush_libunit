@@ -1,4 +1,5 @@
 #include "./libunit.h"
+#include "./ft_printf/ft_printf.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -6,7 +7,7 @@
 
 void	load_test(t_unit_test *test_list, char *test_name, int (*test_f)(void))
 {
-	printf("loading test..\n");
+	ft_printf("(dbg) loading test..\n");
 	while(test_list->next != NULL)
 		test_list = test_list->next;
 	
@@ -34,7 +35,7 @@ char	*decode_status(int	status)
 {
 	if(WIFEXITED(status))
 	{
-		printf("i'm in exit!\n");
+		printf("(dbg) i'm in exit!\n");
 		if (WEXITSTATUS(status) == 0)
 			return "OK";
 		else
