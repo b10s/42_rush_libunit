@@ -42,6 +42,7 @@ int my_f(int x, int y)
 		s1[1] = s2[1];
 		s1[2] = s2[2];
 		s1[3] = s2[3];
+		return (0);
 		//strcpy(s1, s2);
 
 		//char *aligned_memory = malloc(sizeof(int) + 1);
