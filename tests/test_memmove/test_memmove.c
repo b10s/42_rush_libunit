@@ -1,4 +1,5 @@
 #include "libft.h"
+#include "rt_memmove.h"
 
 void	*test_memmove(void *dst, const void *src, unsigned int count)
 {

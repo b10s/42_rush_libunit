@@ -1,9 +1,5 @@
 #include "libunit.h"
-
-int	basic_memmove_ok(void);
-int	basic_memmove_ko(void);
-int	basic_memmove_segv(void);
-int	basic_memmove_bus(void);
+#include "rt_memmove.h"
 
 int	basic_memmove_launcher(void)
 {

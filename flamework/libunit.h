@@ -1,14 +1,15 @@
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
+# include "libft.h"
 # include "libftprintf.h"
-# include <stdlib.h>
-# include <unistd.h>
 # include <signal.h>
-# include <sys/wait.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <sys/wait.h>
+# include <unistd.h>
 # define TIMEOUT_SECONDS 3
 
-typedef struct			s_unit_test
+typedef struct s_unit_test
 {
 	char				*name;
 	int					(*test)(void);

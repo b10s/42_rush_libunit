@@ -1,5 +1,5 @@
 #include "libunit.h"
-#include <string.h>
+#include "rt_memmove.h"
 
 extern void	*lu_memmove(void *dst, const void *src, unsigned int count);
 
