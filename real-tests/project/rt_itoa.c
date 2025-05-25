@@ -6,13 +6,13 @@
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:57:58 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/25 16:52:53 by shattori         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:36:36 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	len_digit(int n)
+const int	len_digit(int n)
 {
 	int	len;
 

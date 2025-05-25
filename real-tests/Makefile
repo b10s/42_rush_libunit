@@ -9,11 +9,22 @@ LIBUNIT_H   = $(LIBUNIT_DIR)/libunit.h
 LIBFT_DIR	= ./libft
 LIBFT_A		= $(LIBFT_DIR)/libft.a
 
-SRCS		= main.c \
-			  launcher/00_rt_launcher.c \
-			  tests/01_rt_strlen_ok.c \
-			  tests/02_rt_strlen_ko.c \
-			  tests/03_rt_strlen_segv.c
+SRCS = main.c \
+	   project/rt_atoi.c \
+	   project/rt_itoa.c \
+	   project/rt_strlen.c \
+	   real_test_atoi/00_rt_atoi_launcher.c \
+	   real_test_atoi/01_rt_atoi_ok.c \
+	   real_test_atoi/02_rt_negative_test.c \
+	   real_test_atoi/03_zero_test.c \
+	   real_test_atoi/04_int_max_test.c \
+	   real_test_atoi/05_int_min_test.c \
+	   real_test_atoi/06_invalid_test.c \
+	   real_test_strlen/00_rt_strlen_launcher.c \
+	   real_test_strlen/01_rt_strlen_ok.c \
+	   real_test_strlen/02_rt_strlen_ko.c \
+	   real_test_strlen/03_rt_strlen_segv.c \
+	   real_test_strlen/04_rt_strlen_buse.c
 
 OBJS		= $(SRCS:.c=.o)
 

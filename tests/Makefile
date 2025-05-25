@@ -9,12 +9,17 @@ SRC = \
 	basic/02_test_ko.c
 	basic/03_test_segv.c
 	basic/04_test_buse.c
+
 OBJ = $(SRC:.c=.o)
+
+LIBU_A = ../libunit/libunit.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(LIBU_A) $(CFLAGS) -o $(NAME) $(OBJ)
+
+$(LIBU_A): $(MAKE) -C ../libunit
 
 clean:
 	rm -f $(OBJ)
