@@ -2,7 +2,7 @@
 
 int my_f(int x, int y)
 {
-	//printf("my_f is called\n");
+	//libunit/my_f/my_f.cprintf("my_f is called\n");
 
 	// KO
 	if (x == 4)
@@ -12,7 +12,7 @@ int my_f(int x, int y)
 	if (x == 44)
 		return (0);
 
-	// TODO: SIGSEGV
+	// TODO: SIGBUS
 	if (x == 444)
 		return (0);
 		
