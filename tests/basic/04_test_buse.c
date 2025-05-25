@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   04_test_buse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 15:04:24 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:03:44 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/25 18:01:18 by jdaufin           #+#    #+#             */
+/*   Updated: 2025/05/25 20:04:56 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./basic/101_basic_tests.h"
+#include "101_basic_tests.h"
 
-int	main(void)
+int	test_buse(void)
 {
-	basic_launcher();
-	return (0);
+	int	*ptr;
+
+	ptr = (int *)1;
+	return (my_f(*ptr, 2));
 }

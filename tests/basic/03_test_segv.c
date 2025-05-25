@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_test_segv.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 15:04:24 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:03:44 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/25 17:57:37 by jdaufin           #+#    #+#             */
+/*   Updated: 2025/05/25 20:05:22 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./basic/101_basic_tests.h"
+#include "101_basic_tests.h"
 
-int	main(void)
+int	test_segv(void)
 {
-	basic_launcher();
-	return (0);
+	int	*ptr;
+
+	ptr = NULL; 
+	return (my_f(*ptr, 2));
 }
