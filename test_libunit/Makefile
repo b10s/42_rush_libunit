@@ -1,20 +1,19 @@
-.PHONY: all re clean fclean tst_main
+.PHONY: all re clean fclean
 
-NAME := libunit.a
+NAME := test_libunit
 
-SRC := libunit.c
+SRC := main.c my_f.c tests/00_my_f_tests_launcher.c tests/01_my_f_test_ok.c tests/02_my_f_test_ko.c tests/03_my_f_test_sigsegv.c tests/04_my_f_test_sigbus.c
 OBJ := $(patsubst %.c, %.o, $(SRC))
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-FT_PRINTF := ./ft_printf/libftprintf.a
+FT_LIBUNIT := ../libunit/libunit.a
 
 
-$(NAME): $(OBJ) $(FT_PRINTF)
-	cp ft_printf/libftprintf.a $(NAME)
-	ar -srv $(NAME) $?
+$(NAME): $(OBJ) $(FT_LIBUNIT)
+	$(CC) $(CFLAGS) $^ -L./../libunit -lunit -o $@
 	
-$(FT_PRINTF):
-	@make -C ./ft_printf/
+$(FT_LIBUNIT):
+	@make -C ../libunit/
 
 all: $(NAME)
 
@@ -28,3 +27,4 @@ fclean: clean
 
 tst_main: $(NAME)
 	cc -Wall -Wextra -Werror main_andrei.c my_f/my_f.c my_f/tests/00_my_f_tests_launcher.c my_f/tests/01_my_f_test_ok.c my_f/tests/02_my_f_test_ko.c my_f/tests/03_my_f_test_sigsegv.c my_f/tests/04_my_f_test_sigbus.c -L./ -lunit -o libunit_main
+
