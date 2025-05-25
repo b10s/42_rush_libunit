@@ -10,9 +10,6 @@ SRC = \
 	test_memmove/03_basic_memmove_segv.c \
 	test_memmove/04_basic_memmove_bus.c \
 	test_memmove/test_memmove.c \
-	../framework/load_test.c \
-	../framework/launch_tests.c \
-	../framework/utils.c
 
 OBJ = $(SRC:.c=.o)
 
