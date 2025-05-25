@@ -12,9 +12,9 @@
 
 #include "../my_f.h"
 
-int	my_f_test_ok(void)
+int	my_f_test_ok_4(void)
 {
-	if (my_f(40, 2) == 42)
+	if (my_f(1, 3) == 4)
 		return (0);
 	else
 		return (-1);
