@@ -2,7 +2,7 @@
 
 NAME := real_tests
 
-SRC := main.c my_f.c tests/00_my_f_tests_launcher.c tests/01_my_f_test_ok.c tests/02_my_f_test_ko.c tests/03_my_f_test_sigsegv.c tests/04_my_f_test_sigbus.c
+SRC := main.c my_f.c tests/00_my_f_tests_launcher.c
 OBJ := $(patsubst %.c, %.o, $(SRC))
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
