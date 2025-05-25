@@ -1,4 +1,3 @@
-#include "libunit.h"
 #include "rt_memmove.h"
 
 extern void	*test_memmove(void *dst, const void *src, unsigned int count);
@@ -9,7 +8,7 @@ int	basic_memmove_ok(void)
 	char	dst[20];
 
 	test_memmove(dst, src, 7);
-	if (memcmp(dst, src, 7) == 0)
+	if (ft_memcmp(dst, src, 7) == 0)
 		return (0);
 	return (-1);
 }

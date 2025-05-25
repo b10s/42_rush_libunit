@@ -1,4 +1,3 @@
-#include "libunit.h"
 #include "rt_memmove.h"
 
 extern void	*test_memmove(void *dst, const void *src, unsigned int count);
