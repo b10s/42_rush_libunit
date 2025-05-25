@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_rt_putchar_launcher.c                           :+:      :+:    :+:   */
+/*   rt_putchar.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 18:28:06 by nkamolba          #+#    #+#             */
-/*   Updated: 2017/11/26 18:55:01 by nkamolba         ###   ########.fr       */
+/*   Created: 2025/05/25 23:16:43 by aenshin           #+#    #+#             */
+/*   Updated: 2025/05/25 23:16:45 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt_putchar.h"
+#include "../../libunit/ft_printf/ft_printf.h"
 
 int	rt_putchar_launcher(void)
 {
