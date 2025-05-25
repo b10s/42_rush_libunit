@@ -6,13 +6,13 @@
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:27:09 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/25 16:51:14 by shattori         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:36:30 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_sign(const char *str, long *i)
+const int	check_sign(const char *str, long *i)
 {
 	int	neg;
 

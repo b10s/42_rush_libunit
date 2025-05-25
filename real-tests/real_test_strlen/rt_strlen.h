@@ -2,6 +2,7 @@
 # define RT_STRLEN_H
 
 # include "libunit.h"
+# include "../project/project.h"
 
 int	basic_strlen_launcher(void);
 int	basic_strlen_test_ok(void);

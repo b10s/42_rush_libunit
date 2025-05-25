@@ -4,6 +4,7 @@
 int	basic_atoi_launcher(void)
 {
 	t_unit_test	*lst;
+	int			ret;
 
 	lst = NULL;
 	load_test(&lst, "01_basic_test_ok", &basic_test_ok);
@@ -12,5 +13,7 @@ int	basic_atoi_launcher(void)
 	load_test(&lst, "04_int_max_test", &int_max_test);
 	load_test(&lst, "05_int_min_test", &int_min_test);
 	load_test(&lst, "06_invalid_test", &invalid_test);
-	return (launch_tests(&lst, "FT_ATOI"));
+	ret = launch_tests(&lst);
+	clean_list(&lst);
+	return (ret);
 }
