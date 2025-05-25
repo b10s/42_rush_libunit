@@ -3,4 +3,5 @@ a.out
 libunit_main
 *.o
 *.a
+test_libunit
 

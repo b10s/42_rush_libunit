@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:21:53 by aenshin           #+#    #+#             */
-/*   Updated: 2025/05/25 22:26:40 by aenshin          ###   ########.fr       */
+/*   Updated: 2025/05/25 23:03:57 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 void	load_test(t_unit_test *test_list, char *test_name, int (*test_f)(void))
 {
-	ft_printf("(dbg) loading test..\n");
 	while (test_list->next != NULL)
 		test_list = test_list->next;
 	if (test_list->name != NULL)
@@ -49,7 +48,6 @@ char	*decode_status(int status)
 {
 	if (WIFEXITED(status))
 	{
-		ft_printf("(dbg) i'm in exit!\n");
 		if (WEXITSTATUS(status) == 0)
 			return ("OK");
 		else
@@ -57,7 +55,6 @@ char	*decode_status(int status)
 	}
 	else
 	{
-		ft_printf("(dbg) i'm in signal! sig was [%d]\n", WTERMSIG(status));
 		if (WTERMSIG(status) == SIGSEGV)
 			return ("SIGSEGV");
 		if (WTERMSIG(status) == SIGBUS)
@@ -73,7 +70,6 @@ int	parent(char *f_name, char *t_name)
 
 	ret = 0;
 	wait(&status);
-	ft_printf("(dbg) status [%d]\n", status);
 	ft_printf("[%s]:[%s]:", f_name, t_name);
 	if (status == 0)
 		ret = 1;
