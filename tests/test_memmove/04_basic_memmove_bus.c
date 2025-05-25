@@ -1,7 +1,7 @@
 #include "libunit.h"
 #include "rt_memmove.h"
 
-extern void	*lu_memmove(void *dst, const void *src, unsigned int count);
+extern void	*test_memmove(void *dst, const void *src, unsigned int count);
 
 int	basic_memmove_bus(void)
 {
@@ -10,6 +10,6 @@ int	basic_memmove_bus(void)
 
 	p = (int *)0x123;
 	v = 42;
-	lu_memmove(p, &v, sizeof(int));
+	test_memmove(p, &v, sizeof(int));
 	return (0);
 }
