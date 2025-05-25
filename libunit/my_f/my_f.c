@@ -10,7 +10,7 @@ int my_f(int x, int y)
 
 	z = 42;
 	foo = (int *)0;
-	bar = &z;
+	bar = (int *)1;
 
 	//libunit/my_f/my_f.cprintf("my_f is called\n");
 
@@ -35,13 +35,18 @@ int my_f(int x, int y)
 		//char array[10];
 		//return array[atol("34544")];
 
-		char *s1;
-		char *s2;
-		s1 = "AI";
-		s2 = "HELLO";
-		s1[1] = s2[1];
-		s1[2] = s2[2];
-		s1[3] = s2[3];
+		//*bar = 42;
+		int *xxx;
+
+		xxx = (int *)404;
+		*xxx = 123;
+
+		//char *s2;
+		//s1 = "AI";
+		//s2 = "HELLO";
+		//s1[1] = s2[1];
+		//s1[2] = s2[2];
+		//s1[3] = s2[3];
 		return (0);
 		//strcpy(s1, s2);
 
