@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   04_plus_sign_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdaufin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 19:12:15 by jdaufin           #+#    #+#             */
-/*   Updated: 2017/11/26 21:14:38 by jdaufin          ###   ########.fr       */
+/*   Created: 2017/11/26 19:46:15 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 21:00:56 by jdaufin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "rt_putchar.h"
-#include "rt_putstr.h"
 #include "rt_atoi.h"
 
-int	main(void)
+int	plus_sign_test(void)
 {
-	rt_putchar_launcher();
-	rt_putstr_launcher();
-	rt_atoi_launcher();
-	return (0);
+	if (rt_atoi("+123") == 123)
+		return (0);
+	else
+		return (-1);
 }

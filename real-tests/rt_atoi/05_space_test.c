@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_rt_strlen_ok.c                                  :+:      :+:    :+:   */
+/*   05_space_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 03:47:19 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/25 16:38:30 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/26 19:47:14 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 19:48:02 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "rt_atoi.h"
 
-int	ft_strlen(const char *str);
-
-int	basic_strlen_test_ok(void)
+int	space_test(void)
 {
-	char	s1[10] = "hello";
-	char	*s2;
-
-	s2 = "world";
-	if (ft_strlen(s1) == 5 && ft_strlen(s2) == 5)
+	if (rt_atoi("   123") == 123)
 		return (0);
 	else
 		return (-1);

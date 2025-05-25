@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdaufin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 19:12:15 by jdaufin           #+#    #+#             */
-/*   Updated: 2017/11/26 21:14:38 by jdaufin          ###   ########.fr       */
+/*   Created: 2017/11/26 18:19:34 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 21:26:32 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
 #include "rt_putchar.h"
-#include "rt_putstr.h"
-#include "rt_atoi.h"
 
-int	main(void)
+int	basic_test(void)
 {
-	rt_putchar_launcher();
-	rt_putstr_launcher();
-	rt_atoi_launcher();
-	return (0);
+	int		stdout_copy;
+	int		fd_pipe[2];
+	char	buff[100];
+
+	stdout_copy = stdout_to_pipe(fd_pipe);
+	rt_putchar('a');
+	get_pipe_buffer(stdout_copy, fd_pipe, buff, 100);
+	if (ft_strcmp(buff, "a") == 0)
+		return (0);
+	else
+		return (-1);
 }

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rt_putchar.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdaufin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 19:12:15 by jdaufin           #+#    #+#             */
-/*   Updated: 2017/11/26 21:14:38 by jdaufin          ###   ########.fr       */
+/*   Created: 2017/11/26 18:34:33 by nkamolba          #+#    #+#             */
+/*   Updated: 2025/05/25 23:11:59 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "rt_putchar.h"
-#include "rt_putstr.h"
-#include "rt_atoi.h"
+#ifndef RT_PUTCHAR_H
+# define RT_PUTCHAR_H
 
-int	main(void)
-{
-	rt_putchar_launcher();
-	rt_putstr_launcher();
-	rt_atoi_launcher();
-	return (0);
-}
+# include "../libunit/libunit.h"
+
+void	rt_putchar(char c);
+int		rt_putchar_launcher(void);
+int		basic_test(void);
+int		unprintable_char_test(void);
+
+#endif

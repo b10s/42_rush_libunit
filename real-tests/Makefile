@@ -1,60 +1,88 @@
-NAME		= real-test
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+.PHONY = all test clean fclean re
 
-LIBUNIT_DIR = ./libunit
-LIBUNIT_A   = $(LIBUNIT_DIR)/libunit.a
-LIBUNIT_H   = $(LIBUNIT_DIR)/libunit.h
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIR	= ./libft
-LIBFT_A		= $(LIBFT_DIR)/libft.a
+FWK_DIR = ../framework/
+FWK_HDR = $(addprefix $(FWK_DIR), libunit.h)
+FWK = $(addprefix $(FWK_DIR), libunit.a)
 
-SRCS = main.c \
-	   project/rt_atoi.c \
-	   project/rt_itoa.c \
-	   project/rt_strlen.c \
-	   real_test_atoi/00_rt_atoi_launcher.c \
-	   real_test_atoi/01_rt_atoi_ok.c \
-	   real_test_atoi/02_rt_negative_test.c \
-	   real_test_atoi/03_zero_test.c \
-	   real_test_atoi/04_int_max_test.c \
-	   real_test_atoi/05_int_min_test.c \
-	   real_test_atoi/06_invalid_test.c \
-	   real_test_strlen/00_rt_strlen_launcher.c \
-	   real_test_strlen/01_rt_strlen_ok.c \
-	   real_test_strlen/02_rt_strlen_ko.c \
-	   real_test_strlen/03_rt_strlen_segv.c \
-	   real_test_strlen/04_rt_strlen_buse.c \
-	   real_test_strlen/04_rt_strlen_zero.c \
-	   real_test_itoa/00_rt_itoa_launcher.c \
-	   real_test_itoa/01_rt_itoa_ok.c \
-	   real_test_itoa/02_rt_itoa_negative_ok.c \
-	   real_test_itoa/03_rt_itoa_zero.c \
-	   real_test_itoa/04_rt_itoa_int_min_ok.c \
-	   real_test_itoa/05_rt_itoa_int_max.c
+PRINT_DIR = $(addprefix $(FWK_DIR), ft_printf/)
+PRINT_HDR_DIR = $(addprefix $(PRINT_DIR), includes/)
+PRINT = $(addprefix $(PRINT_DIR), libftprintf.a)
 
+FT_DIR = $(addprefix $(FWK_DIR), libft/)
+FT_HDR_DIR = $(addprefix $(FT_DIR), includes/)
+FT = $(addprefix $(FT_DIR), libft.a)
 
-OBJS		= $(SRCS:.c=.o)
+INCLUDES = -I $(FWK_DIR) -I $(PRINT_HDR_DIR) -I $(FT_HDR_DIR)\
+		   -I $(PUTCHAR_DIR)\
+		   -I $(PUTSTR_DIR)\
+		   -I $(ATOI_DIR)
+LIBS = -L$(FWK_DIR) -lunit -L$(PRINT_DIR) -lftprintf -L$(FT_DIR) -lft
 
-all: $(NAME)
+MAIN = main.c
+ROUTINE = rt_project
 
-$(NAME): $(OBJS) $(LIBUNIT_A)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBUNIT_A) $(LIBFT_A)
+PROJECT_DIR = ./project/
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(LIBUNIT_DIR) -I$(LIBFT_DIR) -c $< -o $@
+PUTCHAR_DIR = ./rt_putchar/
+PUTCHAR_RT = $(addprefix $(PROJECT_DIR), rt_putchar.c)
+PUTCHAR_RT_OBJ = $(patsubst %.c,%.o,$(PUTCHAR_RT))
+PUTCHAR_TESTS_SRC = 00_rt_putchar_launcher 01_basic_test 02_unprintable_char_test
+PUTCHAR_SRC = $(addprefix $(PUTCHAR_DIR), $(addsuffix .c, $(PUTCHAR_TESTS_SRC)))
+PUTCHAR_OBJ = $(patsubst %.c,%.o,$(PUTCHAR_SRC))
 
-$(LIBUNIT_A):
-	make -C $(LIBUNIT_DIR)
+PUTSTR_DIR = ./rt_putstr/
+PUTSTR_RT = $(addprefix $(PROJECT_DIR), rt_putstr.c)
+PUTSTR_RT_OBJ = $(patsubst %.c,%.o,$(PUTSTR_RT))
+PUTSTR_TESTS_SRC = 00_rt_putstr_launcher 01_basic_putstr_test 02_null_test
+PUTSTR_SRC = $(addprefix $(PUTSTR_DIR), $(addsuffix .c, $(PUTSTR_TESTS_SRC)))
+PUTSTR_OBJ = $(patsubst %.c,%.o,$(PUTSTR_SRC))
 
-clean:
-	$(RM) $(OBJS)
-	make clean -C $(LIBUNIT_DIR)
+ATOI_DIR = ./rt_atoi/
+ATOI_RT = $(addprefix $(PROJECT_DIR), rt_atoi.c)
+ATOI_RT_OBJ = $(patsubst %.c,%.o,$(ATOI_RT))
+ATOI_TESTS_SRC = 00_rt_atoi_launcher 01_basic_atoi_test 02_zero_test 03_negative_test\
+				 04_plus_sign_test 05_space_test 06_space_plus_test 07_space_negative_test\
+				 08_word_after_test 09_zero_before_num_test 10_zero_before_neg_num_test\
+				 11_multiple_zero_test
+ATOI_SRC = $(addprefix $(ATOI_DIR), $(addsuffix .c, $(ATOI_TESTS_SRC)))
+ATOI_OBJ = $(patsubst %.c,%.o,$(ATOI_SRC))
 
-fclean: clean
-	$(RM) $(NAME)
-	make fclean -C $(LIBUNIT_DIR)
+all : $(ROUTINE)
 
-re: fclean all
+test : $(ROUTINE)
+	./$(ROUTINE)
 
-.PHONY: all clean fclean re
+$(ROUTINE) : $(MAIN)\
+	$(PUTCHAR_OBJ) $(PUTCHAR_RT_OBJ)\
+	$(PUTSTR_OBJ) $(PUTSTR_RT_OBJ)\
+	$(ATOI_OBJ) $(ATOI_RT_OBJ)
+	@make -C $(FWK_DIR)
+	@$(CC) $(CFLAGS) $^ $(INCLUDES) $(LIBS) -o $@
+
+$(PROJECT_DIR)%.o : $(PROJECT_DIR)%.c
+	@$(CC) $(CFLAGS) -c $< $(INCLUDES) -o $@
+
+$(PUTCHAR_DIR)%.o : $(PUTCHAR_DIR)%.c
+	@$(CC) $(CFLAGS) -c $< $(INCLUDES) -o $@
+
+$(PUTSTR_DIR)%.o : $(PUTSTR_DIR)%.c
+	@$(CC) $(CFLAGS) -c $< $(INCLUDES) -o $@
+
+$(ATOI_DIR)%.o : $(ATOI_DIR)%.c
+	@$(CC) $(CFLAGS) -c $< $(INCLUDES) -o $@
+
+clean : 
+	@make clean -C $(FWK_DIR)
+	@make clean -C $(PRINT_DIR)
+	@make clean -C $(FT_DIR)
+	@rm -f $(PUTCHAR_RT_OBJ) $(PUTCHAR_OBJ)
+	@rm -f $(PUTSTR_RT_OBJ) $(PUTSTR_OBJ)
+	@rm -f $(ATOI_RT_OBJ) $(ATOI_OBJ)
+
+fclean : clean
+	@rm -f $(ROUTINE) $(FWK) $(PRINT) $(FT)
+
+re : fclean all

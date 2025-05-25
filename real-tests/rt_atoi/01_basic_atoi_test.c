@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_basic_strlen_segv.c                             :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 03:47:24 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/24 06:43:18 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/26 19:32:29 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 20:36:49 by jdaufin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "rt_atoi.h"
 
-int	ft_strlen(const char *str);
-
-int	basic_strlen_test_segv(void)
+int	basic_atoi_test(void)
 {
-	char	*s1;
-
-	s1 = NULL;
-	if (ft_strlen(s1))
+	if (rt_atoi("123") == 123)
 		return (0);
 	else
 		return (-1);

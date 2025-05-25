@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_strlen.c                                        :+:      :+:    :+:   */
+/*   08_word_after_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:16:30 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/25 16:51:18 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/26 19:50:18 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 19:51:05 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "rt_atoi.h"
 
-size_t	rt_strlen(const char *in)
+int	word_after_test(void)
 {
-	size_t	cnt;
-
-	cnt = 0;
-	while (in[cnt])
-		cnt++;
-	return (cnt);
+	if (rt_atoi("123abc") == 123)
+		return (0);
+	else
+		return (-1);
 }

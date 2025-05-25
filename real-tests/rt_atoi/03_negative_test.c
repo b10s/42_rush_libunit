@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_rt_strlen_buse.c                                :+:      :+:    :+:   */
+/*   03_negative_test.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 03:47:27 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/25 17:06:25 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/26 19:44:30 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 20:58:55 by jdaufin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "rt_atoi.h"
 
-int	ft_strlen(const char *str);
-
-int	basic_strlen_test_buse(void)
+int	negative_test(void)
 {
-	char	*s;
-
-	s = (char *)1; // inscert address 1 to s
-	ft_strlen(s);
-	return (-1);
+	if (rt_atoi("-123") == -123)
+		return (0);
+	else
+		return (-1);
 }

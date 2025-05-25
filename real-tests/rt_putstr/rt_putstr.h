@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_rt_strlen_ko.c                                  :+:      :+:    :+:   */
+/*   rt_putstr.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nkamolba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 03:47:22 by shattori          #+#    #+#             */
-/*   Updated: 2025/05/25 20:33:47 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/26 19:11:50 by nkamolba          #+#    #+#             */
+/*   Updated: 2017/11/26 21:32:15 by jdaufin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#ifndef RT_PUTSTR_H
+# define RT_PUTSTR_H
 
-int	ft_strlen(const char *str);
+# include "libunit.h"
 
-int	basic_strlen_test_ko(void)
-{
-	char	s1[10] = "hello";
-	char	*s2;
+void	rt_putstr(char *str);
+int		rt_putstr_launcher(void);
+int		basic_putstr_test(void);
+int		null_test(void);
 
-	s2 = "world";
-	if (ft_strlen(s1) == 10 && ft_strlen(s2) == 10)
-		return (0);
-	else
-		return (-1);
-}
+#endif
