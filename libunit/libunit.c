@@ -34,6 +34,7 @@ char	*decode_status(int	status)
 {
 	if(WIFEXITED(status))
 	{
+		printf("i'm in exit!\n");
 		if (WEXITSTATUS(status) == 0)
 			return "OK";
 		else
@@ -41,6 +42,7 @@ char	*decode_status(int	status)
 	}
 	else
 	{
+		printf("(dbg) i'm in signal! sig was [%d]\n", WTERMSIG(status));
 		if (WTERMSIG(status) == SIGSEGV)
 			return ("SIGSEGV");
 		if (WTERMSIG(status) == SIGBUS)

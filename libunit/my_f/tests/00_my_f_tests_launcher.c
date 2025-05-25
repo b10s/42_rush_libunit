@@ -12,6 +12,7 @@ int my_f_tests_launcher(void)
 	load_test(t, "my_f_test_ok", &my_f_test_ok);
 	load_test(t, "my_f_test_ko", &my_f_test_ko);
 	load_test(t, "my_f_test_sigsegv", &my_f_test_sigsegv);
+	load_test(t, "my_f_test_sigbus", &my_f_test_sigbus);
 
 	res = launch_test(t, "my_f");
 	//TODO: do we need to free list or launch can free?
