@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_test_ko.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 15:04:24 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:01:01 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/25 17:34:08 by jdaufin           #+#    #+#             */
+/*   Updated: 2025/05/25 20:01:07 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "101_basic_tests.h"
-#include "libunit.h"
 
-int	main(void)
+int	test_ko(void)
 {
-	basic_launcher();
-	return (0);
+	if (myf(20, 4) == 25)
+		return (0);
+	else
+		return (-1);
 }

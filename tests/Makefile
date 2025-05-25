@@ -4,13 +4,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = \
 	main.c \
-	test_memmove/00_launcher.c \
-	test_memmove/01_basic_memmove_ok.c \
-	test_memmove/02_basic_memmove_ko.c \
-	test_memmove/03_basic_memmove_segv.c \
-	test_memmove/04_basic_memmove_bus.c \
-	test_memmove/test_memmove.c \
-
+	basic/00_launcher.c
+	basic/01_test_ok.c
+	basic/02_test_ko.c
+	basic/03_test_segv.c
+	basic/04_test_buse.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

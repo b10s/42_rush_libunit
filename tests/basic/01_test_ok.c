@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   01_test_ok.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 15:04:24 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:01:01 by shattori         ###   ########.fr       */
+/*   Created: 2017/11/25 17:30:39 by jdaufin           #+#    #+#             */
+/*   Updated: 2025/05/25 20:01:06 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "101_basic_tests.h"
-#include "libunit.h"
 
-int	main(void)
+int	test_ok(void)
 {
-	basic_launcher();
-	return (0);
+	if (my_f(20, 4) == 24)
+		return (0);
+	else
+		return (-1);
 }
