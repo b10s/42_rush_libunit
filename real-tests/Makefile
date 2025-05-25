@@ -24,7 +24,15 @@ SRCS = main.c \
 	   real_test_strlen/01_rt_strlen_ok.c \
 	   real_test_strlen/02_rt_strlen_ko.c \
 	   real_test_strlen/03_rt_strlen_segv.c \
-	   real_test_strlen/04_rt_strlen_buse.c
+	   real_test_strlen/04_rt_strlen_buse.c \
+	   real_test_strlen/04_rt_strlen_zero.c \
+	   real_test_itoa/00_rt_itoa_launcher.c \
+	   real_test_itoa/01_rt_itoa_ok.c \
+	   real_test_itoa/02_rt_itoa_negative_ok.c \
+	   real_test_itoa/03_rt_itoa_zero.c \
+	   real_test_itoa/04_rt_itoa_int_min_ok.c \
+	   real_test_itoa/05_rt_itoa_int_max.c
+
 
 OBJS		= $(SRCS:.c=.o)
 
