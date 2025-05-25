@@ -6,7 +6,7 @@
 /*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:57:04 by aenshin           #+#    #+#             */
-/*   Updated: 2025/05/25 22:58:01 by aenshin          ###   ########.fr       */
+/*   Updated: 2025/05/26 00:20:03 by aenshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	my_f(int x, int y)
 {
 	int	*foo;
 	int	*bar;
-	int	*xxx;
 	int	z;
 
 	z = 42;
@@ -33,8 +32,10 @@ int	my_f(int x, int y)
 	}
 	if (x == 444)
 	{
-		xxx = (int *)404;
-		*xxx = 123;
+		__asm__(".intel_syntax noprefix\n"
+			"mov rbp,0x400000000000000\n"
+			"mov rax,[rbp]\n"
+			"ud2\n");
 		return (0);
 	}
 	return (x + y);
