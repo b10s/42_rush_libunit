@@ -24,8 +24,6 @@ void child(t_unit_test *t)
 {
 	int	test_res;
 
-	printf("hi from child, tst [%s]\n", t->name);
-	// TODO: run test and return OK or KO as exit
 	test_res = t->test_f();
 	if (test_res == 0)
 		exit(0);
@@ -35,11 +33,21 @@ void child(t_unit_test *t)
 int parent(char *f_name, char *t_name)
 {
 	int	status;
+	int	ret;
 	// TODO: get status - from exit code or signal
 
+	ret = 0;
 	wait(&status);
+	printf("(dbg) status [%d]\n", status);
 	printf("[%s]:[%s]:", f_name, t_name);
-	return (0);
+		if (status == 0)
+		{
+			printf("[%s]\n", "OK");
+			ret = 1;
+		}
+		else
+			printf("[%s]\n", "KO");
+	return (ret);
 }
 
 int		launch_test(t_unit_test *test_list, char *test_func_name) {
@@ -65,14 +73,7 @@ int		launch_test(t_unit_test *test_list, char *test_func_name) {
 
 		test_cnt++;
 		// TODO: fork and check here exit status or signal
-		res = test_list->test_f();
-		if (res == 0)
-		{
-			printf("[%s]\n", "OK");
-			succeed_test++;
-		}
-		else
-			printf("[%s]\n", "KO");
+		//res = test_list->test_f();
 			
 		test_list = test_list->next;
 	}
