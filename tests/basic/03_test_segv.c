@@ -6,7 +6,7 @@
 /*   By: shattori <shattori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 17:57:37 by jdaufin           #+#    #+#             */
-/*   Updated: 2025/05/25 20:04:50 by shattori         ###   ########.fr       */
+/*   Updated: 2025/05/25 20:05:22 by shattori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	test_segv(void)
 {
 	int	*ptr;
 
-	ptr = NULL;
+	ptr = NULL; 
 	return (my_f(*ptr, 2));
 }
