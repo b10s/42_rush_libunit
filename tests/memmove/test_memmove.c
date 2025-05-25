@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	*lu_memmove(void *dst, const void *src, unsigned int count)
+void	*test_memmove(void *dst, const void *src, unsigned int count)
 {
 	char	*dptr;
 	char	*sptr;

@@ -2,11 +2,13 @@
 
 extern void	*lu_memmove(void *dst, const void *src, unsigned int count);
 
-int	basic_memmove_segv(void)
+int	basic_memmove_bus(void)
 {
-	char	*dst = NULL;
-	char	*src = NULL;
+	int	*p;
+	int	v;
 
-	lu_memmove(dst, src, 5);
+	p = (int *)0x123;
+	v = 42;
+	lu_memmove(p, &v, sizeof(int));
 	return (0);
 }

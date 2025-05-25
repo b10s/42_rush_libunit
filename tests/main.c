@@ -1,8 +1,8 @@
-#include "libunit.h"
 #include "basic_strcpy_tests.h"
+#include "libunit.h"
 
 int	main(void)
 {
-	int	lu_memmove_launcher(void);
+	basic_memmove_launcher();
 	return (0);
 }
