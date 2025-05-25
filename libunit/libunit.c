@@ -30,6 +30,25 @@ void child(t_unit_test *t)
 	exit(1);
 }
 
+char	*decode_status(int	status)
+{
+	if(WIFEXITED(status))
+	{
+		if (WEXITSTATUS(status) == 0)
+			return "OK";
+		else
+			return "KO";
+	}
+	else
+	{
+		if (WTERMSIG(status) == SIGSEGV)
+			return ("SIGSEGV");
+		if (WTERMSIG(status) == SIGBUS)
+			return ("SIGBUS");
+	}
+	return "WTF :)";
+}
+
 int parent(char *f_name, char *t_name)
 {
 	int	status;
@@ -38,15 +57,14 @@ int parent(char *f_name, char *t_name)
 
 	ret = 0;
 	wait(&status);
+
 	printf("(dbg) status [%d]\n", status);
 	printf("[%s]:[%s]:", f_name, t_name);
-		if (status == 0)
-		{
-			printf("[%s]\n", "OK");
-			ret = 1;
-		}
-		else
-			printf("[%s]\n", "KO");
+
+	if (status == 0)
+		ret = 1;
+	printf("[%s]\n", decode_status(status));
+
 	return (ret);
 }
 

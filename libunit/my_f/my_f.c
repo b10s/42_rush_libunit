@@ -2,6 +2,12 @@
 
 int my_f(int x, int y)
 {
+	int	*ptr;
+	char *foo;
+
+	ptr = NULL;
+	foo = "change me";
+
 	//libunit/my_f/my_f.cprintf("my_f is called\n");
 
 	// KO
@@ -10,7 +16,7 @@ int my_f(int x, int y)
 
 	// TODO: SIGSEGV
 	if (x == 44)
-		return (0);
+		*ptr = 42;
 
 	// TODO: SIGBUS
 	if (x == 444)
