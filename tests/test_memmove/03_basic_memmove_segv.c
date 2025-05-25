@@ -1,7 +1,7 @@
 #include "libunit.h"
 #include "rt_memmove.h"
 
-extern void	*lu_memmove(void *dst, const void *src, unsigned int count);
+extern void	*test_memmove(void *dst, const void *src, unsigned int count);
 
 int	basic_memmove_segv(void)
 {
@@ -10,6 +10,6 @@ int	basic_memmove_segv(void)
 
 	dst = NULL;
 	src = NULL;
-	lu_memmove(dst, src, 5);
+	test_memmove(dst, src, 5);
 	return (0);
 }
