@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libunit.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aenshin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/25 22:21:53 by aenshin           #+#    #+#             */
+/*   Updated: 2025/05/25 22:22:19 by aenshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./libunit.h"
 #include "./ft_printf/ft_printf.h"
 #include <stdlib.h>
@@ -35,7 +47,7 @@ char	*decode_status(int	status)
 {
 	if(WIFEXITED(status))
 	{
-		printf("(dbg) i'm in exit!\n");
+		ft_printf("(dbg) i'm in exit!\n");
 		if (WEXITSTATUS(status) == 0)
 			return "OK";
 		else
@@ -43,7 +55,7 @@ char	*decode_status(int	status)
 	}
 	else
 	{
-		printf("(dbg) i'm in signal! sig was [%d]\n", WTERMSIG(status));
+		ft_printf("(dbg) i'm in signal! sig was [%d]\n", WTERMSIG(status));
 		if (WTERMSIG(status) == SIGSEGV)
 			return ("SIGSEGV");
 		if (WTERMSIG(status) == SIGBUS)
@@ -61,12 +73,12 @@ int parent(char *f_name, char *t_name)
 	ret = 0;
 	wait(&status);
 
-	printf("(dbg) status [%d]\n", status);
-	printf("[%s]:[%s]:", f_name, t_name);
+	ft_printf("(dbg) status [%d]\n", status);
+	ft_printf("[%s]:[%s]:", f_name, t_name);
 
 	if (status == 0)
 		ret = 1;
-	printf("[%s]\n", decode_status(status));
+	ft_printf("[%s]\n", decode_status(status));
 
 	return (ret);
 }

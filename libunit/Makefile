@@ -28,5 +28,5 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f bonus
 
-tst_main:
+tst_main: $(NAME)
 	cc -Wall -Wextra -Werror main_andrei.c my_f/my_f.c my_f/tests/00_my_f_tests_launcher.c my_f/tests/01_my_f_test_ok.c my_f/tests/02_my_f_test_ko.c my_f/tests/03_my_f_test_sigsegv.c my_f/tests/04_my_f_test_sigbus.c -L./ -lunit -o libunit_main
